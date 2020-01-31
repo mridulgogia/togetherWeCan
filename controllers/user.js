@@ -71,43 +71,4 @@ exports.login = (req, res) => {
     .catch(() => {
       return res.status(404).json({ emailNotFound: "Email Not Found" });
     });
-
-  //   User.findOne({ email: req.body.email })
-  //     .then(user => {
-  //       if (!user) {
-  //         return res.status(401).json({
-  //           error: new error("User not found")
-  //         });
-  //       }
-  //       bcrypt
-  //         .compare(req.body.password, user.password)
-  //         .then(valid => {
-  //           if (!valid) {
-  //             return res.status(401).json({
-  //               error: new error("Incorrect Password")
-  //             });
-  //           }
-  //           const payload = {
-  //             id: user.id,
-  //             username: user.username
-  //           };
-  //           jwt.sign(
-  //             payload,
-  //             keys.secretKey,
-  //             { expiresIn: 86400 },
-  //             (err, token) => {
-  //               res.json({
-  //                 success: true,
-  //                 token: `Bearer ${token}`
-  //               });
-  //             }
-  //           );
-  //         })
-  //         .catch(error => {
-  //           res.status(500).json({ error });
-  //         });
-  //     })
-  //     .catch(error => {
-  //       res.status(500).json({ error });
-  //     });
 };
