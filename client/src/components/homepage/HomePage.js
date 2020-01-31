@@ -49,17 +49,17 @@ class HomePage extends Component{
         });
     }
 
-    handleLoginBtn(event) {
+    async handleLoginBtn(event) {
         event.preventDefault();
         const postData = {
             email: this.state.emailLogin,
             password: this.state.passwordLogin
         }
-        this.props.loginHandler(postData)
+        await this.props.loginHandler(postData)
 
     }
 
-    handleSignupBtn(event) {
+    async handleSignupBtn(event) {
         event.preventDefault();
 
         const postData = {
@@ -68,7 +68,7 @@ class HomePage extends Component{
             password: this.state.passwordSignup,
             gender: this.state.genderSignup
         }
-        this.props.signupHandler(postData);
+        await this.props.signupHandler(postData);
     }
 
     render(){
@@ -124,8 +124,8 @@ class HomePage extends Component{
                             <FormControl
                                 type="text"
                                 placeholder="Full Name"
-                                name="fullNameSignup"
-                                value={this.state.fullNameSignup}
+                                name="fullnameSignup"
+                                value={this.state.fullnameSignup}
                                 className="mr-sm-2 col-md-8 signup-form-input"
                                 onChange={this.updateSignupForm}
                             />
@@ -166,6 +166,8 @@ class HomePage extends Component{
                                 onClick={this.genderOnClick} inline
                             />
                         </FormGroup>
+
+                            <div  ></div>
                             <Button
                                 variant="primary"
                                 onClick={this.handleSignupBtn}

@@ -27,7 +27,27 @@ exports.signup = (req, res) => {
           if (err) throw err;
           newUser.password = hash;
           newUser.save().then(user => {
-            res.json(user);
+
+            const payload = {
+              id: user.id,
+              username: user.username
+            };
+            jwt.sign(
+                payload,
+                "RANDOMSTRING",
+                { expiresIn: 86400 },
+                (err, token) => {
+                  res.json({
+                    success: true,
+                    token: `Bearer ${token}`,
+                    id: user.id
+                  });
+                }
+            );
+
+
+
+            // res.json(user);
           });
         });
       });
@@ -60,7 +80,8 @@ exports.login = (req, res) => {
             (err, token) => {
               res.json({
                 success: true,
-                token: `Bearer ${token}`
+                token: `Bearer ${token}`,
+                id: user.id
               });
             }
           );
