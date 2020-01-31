@@ -1,21 +1,20 @@
-import React, {Component} from 'react';
-import { Provider } from 'react-redux';
+import React, { Component } from "react";
+import { Provider } from "react-redux";
 
+import Homepage from "./components/homepage/HomePage";
 
-import Homepage from './components/homepage/HomePage';
-
-import store from './store';
+import store from "./store";
 
 class App extends Component {
-    render() {
+  render() {
     return (
-        <Provider store={store}>
-            <div className="App" >
-                  <Homepage/>
-             </div>
-        </Provider>
-    )
-    }
+      <Provider store={store}>
+        <div className="App">
+          <Homepage />
+        </div>
+      </Provider>
+    );
+  }
 }
 
 export default App;
