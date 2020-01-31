@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const passport = require("passport");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
@@ -25,7 +26,7 @@ app.use((req, res, next) => {
 mongoose
   .connect(
     "mongodb+srv://mridul:Radhasoami0-@cluster0-irqtw.mongodb.net/test?retryWrites=true&w=majority",
-    { useNewUrlParser: true, useCreateIndex: true }
+    { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
   )
   .then(() => {
     console.log("Mongodb Atlas connected successfully");
@@ -34,6 +35,9 @@ mongoose
     console.log("Unable to connect to Mongodb Atlas!");
     console.log(error);
   });
+
+app.use(passport.initialize());
+require("./passport")(passport);
 app.use(bodyParser.json());
 
 app.use("/api/auth", userRoutes);
