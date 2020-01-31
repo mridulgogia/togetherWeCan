@@ -22,17 +22,19 @@ app.use((req, res, next) => {
   next();
 });
 
-<<<<<<< HEAD
-mongoose.connect('mongodb+srv://mridul:Radhasoami0-@cluster0-irqtw.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true , useCreateIndex: true})
-.then(() => {
-  console.log('Mongodb Atlas connected successfully');
-})
-.catch((error) => {
-  console.log('Unable to connect to Mongodb Atlas!');
-  console.log(error);
-});
+mongoose
+  .connect(
+    "mongodb+srv://mridul:Radhasoami0-@cluster0-irqtw.mongodb.net/test?retryWrites=true&w=majority",
+    { useNewUrlParser: true, useCreateIndex: true }
+  )
+  .then(() => {
+    console.log("Mongodb Atlas connected successfully");
+  })
+  .catch(error => {
+    console.log("Unable to connect to Mongodb Atlas!");
+    console.log(error);
+  });
 app.use(bodyParser.json());
-
 
 app.use("/api/auth", userRoutes);
 app.use("/api/chat", chatRoutes);
