@@ -13,7 +13,7 @@ app.use((req, res, next) => {
     next();
 });
 
-mongoose.connect('mongodb+srv://mridul:Radhasoami-1-@cluster0-irqtw.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true , useCreateIndex: true})
+mongoose.connect('mongodb+srv://mridul:Radhasoami0-@cluster0-irqtw.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true , useCreateIndex: true})
 .then(() => {
   console.log('Mongodb Atlas connected successfully');
 })
