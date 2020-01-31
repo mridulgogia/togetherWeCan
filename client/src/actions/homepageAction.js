@@ -13,7 +13,25 @@ export const loginHandler = (postData) => dispatch => {
         .then(response =>
             dispatch({
                 type: LOGIN_POST_DATA,
-                payload: post
+                payload: response
             })
         );
+}
+
+export const signupHandler = (postData) => dispatch => {
+    fetch( 'https://localhost:5000/api/signup',{
+        method: 'POST',
+        header: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(postData)
+    }).then(
+        res => res.json()
+    ).then(
+        response => dispatch({
+            type: SIGNUP_POST_DATA,
+            payload: response
+
+        })
+    );
 }

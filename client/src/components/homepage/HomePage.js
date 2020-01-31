@@ -5,9 +5,8 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FormControl from "react-bootstrap/FormControl";
 import {FormGroup} from "react-bootstrap";
-import { loginHandler } from "../../actions/homepageAction";
+import { loginHandler, signupHandler } from "../../actions/homepageAction";
 import { connect } from 'react-redux';
-import mapStateToProps from "react-redux/lib/connect/mapStateToProps";
 
 class HomePage extends Component{
     constructor(props) {
@@ -56,8 +55,20 @@ class HomePage extends Component{
             email: this.state.emailLogin,
             password: this.state.passwordLogin
         }
-        this.handleLoginBtn(postData)
+        this.props.loginHandler(postData)
 
+    }
+
+    handleSignupBtn(event) {
+        event.preventDefault();
+
+        const postData = {
+            fullname: this.state.fullnameSignup,
+            email: this.state.emailSignup,
+            password: this.state.passwordSignup,
+            gender: this.state.genderSignup
+        }
+        this.props.signupHandler(postData);
     }
 
     render(){
@@ -174,4 +185,4 @@ const mapStateToProps = state => ({
     }
 );
 
-export default connect( mapStateToProps, {loginHandler})(HomePage);
+export default connect( mapStateToProps, {loginHandler, signupHandler})(HomePage);
