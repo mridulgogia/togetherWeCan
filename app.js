@@ -6,6 +6,8 @@ const mongoose = require("mongoose");
 
 const userRoutes = require("./routes/user");
 const chatRoutes = require("./routes/chat");
+const conversationRoutes = require("./routes/conversation");
+const messageRoutes = require("./routes/message");
 
 app.use(bodyParser.urlencoded({ extended: false, limit: "50mb" }));
 app.use(bodyParser.json({ limit: "50mb" }));
@@ -42,5 +44,7 @@ app.use(bodyParser.json());
 
 app.use("/api/auth", userRoutes);
 app.use("/api/chat", chatRoutes);
+app.use("/api/conversation", conversationRoutes);
+app.use("/api/message", messageRoutes);
 
 module.exports = app;
