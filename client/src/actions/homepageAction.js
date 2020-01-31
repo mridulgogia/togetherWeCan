@@ -2,7 +2,7 @@ export const LOGIN_POST_DATA = "LOGIN_POST_DATA";
 export const SIGNUP_POST_DATA = "SIGNUP_FORM_DATA";
 
 export const loginHandler = (postData) => dispatch => {
-    fetch('https://localhost:5000/api/login', {
+    fetch('https://localhost:5000/api/auth/login', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -19,7 +19,7 @@ export const loginHandler = (postData) => dispatch => {
 }
 
 export const signupHandler = (postData) => dispatch => {
-    fetch( 'https://localhost:5000/api/signup',{
+    fetch( 'https://localhost:5000/api/auth/signup',{
         method: 'POST',
         header: {
             'content-type': 'application/json'

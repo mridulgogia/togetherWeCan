@@ -17,7 +17,9 @@ exports.signup = (req, res) => {
     } else {
       const newUser = new User({
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
+        fullname: req.body.fullname,
+        gender: req.body.gender
       });
 
       bcrypt.genSalt(10, (err, salt) => {

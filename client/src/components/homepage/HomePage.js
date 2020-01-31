@@ -169,7 +169,9 @@ class HomePage extends Component{
                             <Button
                                 variant="primary"
                                 onClick={this.handleSignupBtn}
-                            />
+                            >
+                                Sign Up
+                            </Button>
                         </Form>
                     </div>
                 </div>
