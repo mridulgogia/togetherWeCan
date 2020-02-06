@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 import React, {Component} from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
