@@ -7,6 +7,8 @@ import FormControl from "react-bootstrap/FormControl";
 import {FormGroup} from "react-bootstrap";
 import { loginHandler, signupHandler } from "../../actions/homepageAction";
 import { connect } from 'react-redux';
+import { createBrowserHistory } from 'history';
+import { withRouter } from "react-router-dom";
 
 class HomePage extends Component{
     constructor(props) {
@@ -69,6 +71,11 @@ class HomePage extends Component{
             gender: this.state.genderSignup
         }
         await this.props.signupHandler(postData);
+        // this.props.history.push("/home");
+    }
+ 
+    componentDidMount() {
+        console.log(this.props.history);
     }
 
     render(){

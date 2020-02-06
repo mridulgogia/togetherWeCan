@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { BrowserRouter , Switch, Route} from 'react-router-dom';
 import HomePage from "./components/homepage/HomePage";
 
 class MainRouter extends Component{
     render(){
         return (
-            <Router>
+            <BrowserRouter>
                 <Switch>
-                    <Route path="/" exact Component={HomePage} />
+                    <Route path="/" exact>
+                        <HomePage />
+                    {/* <Route path="/"  Component={HomePage} /> */}
                         {/*<HomePage/>*/}
-                    {/*</Route>*/}
+                    </Route>
+                    <Route path="/home" exact>
+                        <div>Hello from home</div>
+                    </Route>
                 </Switch>
-            </Router>
+            </BrowserRouter>
         )
     }
 }
