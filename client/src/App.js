@@ -9,7 +9,6 @@ class App extends Component {
     render() {
     return (<div>
         <Provider store={store}>
-
         <Router>
                 <Switch>
                     <Route path="/" exact>
@@ -23,8 +22,6 @@ class App extends Component {
                     </Route>
                 </Switch>
             </Router>
-
-
         </Provider>
         </div>
     )
